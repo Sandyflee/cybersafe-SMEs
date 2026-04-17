@@ -950,14 +950,10 @@ Return ONLY valid JSON, no markdown, no backticks:
 Generate at least 4 keyFindings and 6 actionPlan items. Make content highly specific to ${c.name} ${s.name} businesses.`;
 
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('https://cybersafe-sme-backend.onrender.com/generate-report', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        messages: [{ role: 'user', content: prompt }]
-      })
+      body: JSON.stringify({ prompt })
     });
     const data = await response.json();
     const raw = data.content.map(b => b.text || '').join('');
