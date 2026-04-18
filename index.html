@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J2BEREGHS4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-J2BEREGHS4');
-</script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CyberSafe SME — Free AI Cyber Risk Report</title>
@@ -547,7 +538,7 @@
     <div class="logo-shield">🛡️</div>
     Cyber<span>Safe</span> SME
   </div>
-  <div class="header-badge">AI Risk Report · Free · Worldwide</div>
+  <div class="header-badge">AI Risk Report · Free · 5 Countries · 5 Sectors</div>
 </header>
 
 <section class="hero">
@@ -556,10 +547,15 @@
   <p class="hero-sub">Answer 15 questions. Get a personalised, AI-generated risk report — tailored to your country's laws and your industry's threats. Free. Always.</p>
   <div class="hero-pills">
     <span class="pill">🇳🇬 Nigeria · NDPR</span>
-    <span class="pill">🇬🇧 UK · GDPR + Cyber Essentials</span>
-    <span class="pill">🇺🇸 USA · NIST + State Laws</span>
+    <span class="pill">🇬🇧 UK · GDPR</span>
+    <span class="pill">🇺🇸 USA · NIST</span>
+    <span class="pill">🇨🇦 Canada · PIPEDA</span>
+    <span class="pill">🇦🇺 Australia · Privacy Act</span>
     <span class="pill">🏥 Healthcare</span>
     <span class="pill">⚖️ Legal</span>
+    <span class="pill">💰 Finance</span>
+    <span class="pill">🎓 Education</span>
+    <span class="pill">🛒 Retail</span>
   </div>
 </section>
 
@@ -599,7 +595,10 @@ const COUNTRIES = {
     penaltyNote: "Fines up to ₦10 million or 2% of annual gross revenue under NDPR",
     sectorNotes: {
       healthcare: "The NDPR classifies health data as sensitive personal data requiring explicit consent. FMOH regulations require patient data confidentiality.",
-      legal: "Legal practitioners are bound by the Rules of Professional Conduct and NDPR. Client-attorney privilege extends to digital records."
+      legal: "Legal practitioners are bound by the Rules of Professional Conduct and NDPR. Client-attorney privilege extends to digital records.",
+      finance: "CBN Cybersecurity Framework and NDPR apply. Fintechs must comply with CBN risk-based cybersecurity guidelines and report incidents within 24 hours.",
+      education: "NDPR applies to all student personal data. Federal Ministry of Education guidelines require data protection policies for institutions handling student records.",
+      retail: "NDPR governs all customer data collected online or in-store. E-commerce platforms must display clear privacy notices and obtain consent before processing data."
     }
   },
   uk: {
@@ -610,7 +609,10 @@ const COUNTRIES = {
     penaltyNote: "Fines up to £17.5 million or 4% of global annual turnover (whichever is higher)",
     sectorNotes: {
       healthcare: "NHS Data Security standards apply. CQC-regulated practices must demonstrate data security. Mandatory to follow NHS DSPT if processing NHS patient data.",
-      legal: "SRA (Solicitors Regulation Authority) requires cyber risk management. Law firms are prime ransomware targets — average ransom demand in 2023 was £850,000."
+      legal: "SRA (Solicitors Regulation Authority) requires cyber risk management. Law firms are prime ransomware targets — average ransom demand in 2023 was £850,000.",
+      finance: "FCA requires robust cyber resilience under SYSC rules. PCI-DSS mandatory for card payments. Operational resilience rules require impact tolerance testing.",
+      education: "UK GDPR applies to all student data. Jisc and NCSC publish sector-specific guidance. Schools must appoint a Data Protection Officer if processing at scale.",
+      retail: "UK GDPR governs customer data and marketing. ICO actively enforces cookie consent rules. PCI-DSS required for any card payment processing."
     }
   },
   usa: {
@@ -621,7 +623,38 @@ const COUNTRIES = {
     penaltyNote: "HIPAA fines from $100 to $50,000 per violation, up to $1.9M per year. State law penalties vary.",
     sectorNotes: {
       healthcare: "HIPAA mandates strict PHI safeguards. Business Associate Agreements required for all vendors. Breach notification within 60 days.",
-      legal: "ABA Model Rules require competent cybersecurity. Many state bars mandate breach notification. Law firms hold highly valuable privileged information."
+      legal: "ABA Model Rules require competent cybersecurity. Many state bars mandate breach notification. Law firms hold highly valuable privileged information.",
+      finance: "Gramm-Leach-Bliley Act (GLBA) and FTC Safeguards Rule apply. SEC cybersecurity disclosure rules require material incident reporting within 4 business days.",
+      education: "FERPA protects student education records. COPPA applies if serving under-13s. Many states have additional student data privacy laws.",
+      retail: "CCPA (California) and growing state privacy laws apply. PCI-DSS mandatory for card payments. FTC enforces unfair data practices across all states."
+    }
+  },
+  canada: {
+    name: "Canada 🇨🇦",
+    laws: ["PIPEDA (Personal Information Protection)", "Bill C-27 / CPPA (upcoming)", "Provincial Privacy Laws", "OSFI Cybersecurity Guidelines"],
+    regulator: "Office of the Privacy Commissioner of Canada (OPC)",
+    reportLink: "https://www.priv.gc.ca",
+    penaltyNote: "PIPEDA fines up to CAD $100,000 per violation. Bill C-27 proposes fines up to 5% of global revenue or CAD $25 million.",
+    sectorNotes: {
+      healthcare: "Provincial health privacy laws (PHIPA in Ontario, HIA in Alberta) apply alongside PIPEDA. Mandatory breach reporting to OPC and affected individuals required.",
+      legal: "Law Society rules in each province require competent cybersecurity. Solicitor-client privilege extends to digital communications and files.",
+      finance: "OSFI B-13 Guideline on Technology and Cyber Risk applies to federally regulated firms. FINTRAC requires AML controls and incident reporting.",
+      education: "FIPPA and MFIPPA apply to publicly funded institutions. Student data must be stored in Canada in many provinces. Breach notification mandatory.",
+      retail: "PIPEDA governs all customer data collection. Canada's Anti-Spam Legislation (CASL) is one of the strictest email marketing laws globally. PCI-DSS for card payments."
+    }
+  },
+  australia: {
+    name: "Australia 🇦🇺",
+    laws: ["Privacy Act 1988", "Australian Privacy Principles (APPs)", "Notifiable Data Breaches Scheme", "Essential Eight Framework (ACSC)"],
+    regulator: "Office of the Australian Information Commissioner (OAIC)",
+    reportLink: "https://www.oaic.gov.au",
+    penaltyNote: "Fines up to AUD $50 million or 30% of adjusted turnover for serious or repeated breaches under 2022 amendments.",
+    sectorNotes: {
+      healthcare: "My Health Records Act applies. Mandatory breach notification under NDB Scheme. ACSC Essential Eight baseline recommended for all health organisations.",
+      legal: "Law Council of Australia cybersecurity guidelines apply. Trust account security is a critical risk area. Legal privilege extends to digital records.",
+      finance: "APRA CPS 234 mandatory for regulated entities. ASIC expects cyber resilience. RBA oversees payment system security. AML/CTF Act requires transaction monitoring.",
+      education: "Privacy Act APPs apply to student data. ACSC provides sector-specific guidance. Universities face targeted nation-state attacks on research data.",
+      retail: "Privacy Act APPs govern customer data. NDB Scheme requires breach notification within 30 days. PCI-DSS mandatory for card payments. ACCC enforces consumer data rights."
     }
   }
 };
@@ -647,6 +680,39 @@ const SECTORS = {
       "Spear phishing targeting partners and senior associates",
       "Confidential document leakage via unsecured email or file sharing",
       "Supply chain attacks via case management software vulnerabilities"
+    ]
+  },
+  finance: {
+    name: "Finance / Fintech",
+    icon: "💰",
+    threatProfile: [
+      "Business Email Compromise (BEC) and payment fraud — fintechs lose millions annually",
+      "API vulnerabilities exposing financial data and enabling unauthorised transactions",
+      "Credential stuffing attacks targeting customer accounts and mobile banking apps",
+      "Insider fraud — staff with access to financial systems and customer funds",
+      "Third-party payment processor breaches exposing card and account data"
+    ]
+  },
+  education: {
+    name: "Education / School / University",
+    icon: "🎓",
+    threatProfile: [
+      "Ransomware targeting student and staff records — education is the #2 most targeted sector",
+      "Phishing attacks on students and staff exploiting academic urgency (deadlines, results)",
+      "Unauthorised access to student personal data, grades, and financial records",
+      "Insecure remote learning platforms and video conferencing tools",
+      "Nation-state attacks on universities targeting research and intellectual property"
+    ]
+  },
+  retail: {
+    name: "Retail / E-commerce",
+    icon: "🛒",
+    threatProfile: [
+      "Magecart attacks — malicious scripts skimming card details from checkout pages",
+      "Account takeover targeting customer loyalty accounts and stored payment methods",
+      "Ransomware disrupting point-of-sale systems and order fulfilment",
+      "Supply chain attacks via compromised e-commerce plugins or third-party scripts",
+      "Fraudulent transactions and refund fraud exploiting weak authentication"
     ]
   }
 };
@@ -796,6 +862,8 @@ function renderSetup() {
             <option value="nigeria">Nigeria 🇳🇬</option>
             <option value="uk">United Kingdom 🇬🇧</option>
             <option value="usa">United States 🇺🇸</option>
+            <option value="canada">Canada 🇨🇦</option>
+            <option value="australia">Australia 🇦🇺</option>
           </select>
         </div>
       </div>
@@ -806,6 +874,9 @@ function renderSetup() {
             <option value="">Select sector...</option>
             <option value="healthcare">Healthcare / Clinic / Pharmacy 🏥</option>
             <option value="legal">Legal / Law Firm ⚖️</option>
+            <option value="finance">Finance / Fintech 💰</option>
+            <option value="education">Education / School / University 🎓</option>
+            <option value="retail">Retail / E-commerce 🛒</option>
           </select>
         </div>
       </div>
@@ -986,7 +1057,7 @@ function buildFallbackReport(pct, total, maxScore, cats, weakCats) {
     executiveSummary: `This ${s.name} has a cyber risk score of ${pct}% — rated ${level}. ${weakCats.length > 0 ? `The most urgent gaps are in: ${weakCats.join(' and ')}.` : 'The business shows a reasonable security baseline.'} Given the sensitivity of ${state.sector === 'healthcare' ? 'patient health data' : 'client legal files'} and the requirements of ${c.laws[0]}, immediate action is recommended on the priority items below.`,
     keyFindings: [
       { priority: "critical", title: "Data breach response plan missing or inadequate", detail: `Under ${c.laws[0]}, you are required to report certain data breaches to ${c.regulator} within a defined timeframe. Without a documented response plan, your business risks regulatory fines and reputational damage. ${c.penaltyNote}.` },
-      { priority: "high", title: "Staff awareness training insufficient", detail: `Over 80% of cyberattacks begin with a human mistake. ${s.name} businesses are frequently targeted with sector-specific lures. Without regular staff training, one click could expose all your ${state.sector === 'healthcare' ? 'patient records' : 'client files'}.` },
+      { priority: "high", title: "Staff awareness training insufficient", detail: `Over 80% of cyberattacks begin with a human mistake. ${s.name} businesses are frequently targeted with sector-specific lures. Without regular staff training, one click could expose all your sensitive business and customer data.` },
       { priority: "high", title: "Weak password and access controls", detail: "Shared or weak passwords remain the leading cause of business account takeover. Without a password manager and 2FA, all your business accounts are vulnerable to credential attacks." },
       { priority: "medium", title: "Backup and recovery capability untested", detail: "Ransomware attacks more than doubled in the last two years. An untested backup is not a real backup. If you cannot restore your data within hours, your business continuity is at serious risk." }
     ],
@@ -1003,7 +1074,7 @@ function buildFallbackReport(pct, total, maxScore, cats, weakCats) {
       status: i === 0 ? 'required' : i === 1 ? 'strong' : 'recommended',
       note: `Review your current compliance position against ${law} requirements as a priority.`
     })),
-    sectorAlert: `${s.name} businesses are among the most targeted by cybercriminals worldwide. ${s.threatProfile[0]}. In 2023, the average cost of a data breach for a healthcare or legal SME exceeded $150,000 when including regulatory fines, legal costs, and reputational damage.`
+    sectorAlert: `${s.name} businesses are among the most targeted by cybercriminals worldwide. ${s.threatProfile[0]}. The average cost of a data breach for an SME in this sector exceeds $150,000 when including regulatory fines, legal costs, and reputational damage — far more than the cost of prevention.`
   };
 }
 
